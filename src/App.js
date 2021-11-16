@@ -4,15 +4,20 @@ import { useEffect } from 'react';
 
 function App() {
   useEffect(() => {
-    fetch('http://localhost:54321/infoDevice')
+    fetch('http://localhost:54321/infoDevice', {
+        headers: {
+          'Accept': 'application/json'
+        },
+        method: 'GET'
+    })
           .then(responde => responde.json())
-          .then(data => console.log(`Prueba ${JSON.stringify(data)}`))
+          .then(data => console.log(`Prueba 2 ${JSON.stringify(data)}`))
   }, []);
 
   useEffect(() => {
     fetch('http://localhost:12345/?printer=2;;N;;Documenta')
         .then(response => response.json())
-        .then(data => console.log(`Ticket ${JSON.stringify(data)}`))
+        .then(data => console.log(`Ticket 2 ${JSON.stringify(data)}`))
   })
   return (
     <div className="App">
