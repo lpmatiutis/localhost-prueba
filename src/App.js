@@ -6,8 +6,10 @@ function App() {
   useEffect(() => {
     fetch('http://localhost:54321/infoDevice', {
       headers: {
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        "Content-Type": "application/json"
       },
+      mode: 'no-cors',
       method: 'GET'
     })
       .then(responde => responde.json())
