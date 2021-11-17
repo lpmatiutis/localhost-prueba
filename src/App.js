@@ -5,27 +5,28 @@ import { useEffect } from 'react';
 function App() {
   useEffect(() => {
     fetch('http://localhost:54321/infoDevice', {
+      mode: "cors",
+      method: 'GET',
       headers: {
-        'Accept': 'application/json',
-        "Content-Type": "application/json"
-      },
-      mode: 'no-cors',
-      method: 'GET'
+        'Accept': 'application/json'
+      }
+      
     })
       .then(responde => responde.json())
       .then(data => console.log(`Prueba 3 ${JSON.stringify(data)}`))
   }, []);
 
-  useEffect(() => {
-    fetch('http://localhost:12345/?printer=2;;N;;Documenta', {
-      headers: {
-        'Accept': 'application/json'
-      },
-      method: 'GET'
-    })
-      .then(response => response.json())
-      .then(data => console.log(`Ticket 3 ${JSON.stringify(data)}`))
-  })
+  // useEffect(() => {
+  //   fetch('http://localhost:12345/?printer=2;;N;;Documenta', {
+  //     mode: 'cors',
+  //     headers: {
+  //       'Accept': 'application/json'
+  //     },
+  //     method: 'GET'
+  //   })
+  //     .then(response => response.json())
+  //     .then(data => console.log(`Ticket 3 ${JSON.stringify(data)}`))
+  // })
   return (
     <div className="App">
       <header className="App-header">
